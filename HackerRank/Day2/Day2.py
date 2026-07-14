@@ -14,23 +14,27 @@ import sys
 #  2. INTEGER propina
 #  3. INTEGER impuestos
 #
+print ("Bienvenido al sistema de facturacion")
+
+print ("Ingrese el producto deseado")
+
 
 def solve(costo_comida, propina, impuestos):
   # Calculate tip and tax values
-    tip = costo_comida * (propina / 100)
-    tax = costo_comida * (impuestos / 100)
+    propina = costo_comida * (propina/100)
+    impuestos = costo_comida * (impuestos/100)
     
     # Sum everything to get the total cost
-    costo_total = costo_comida + tip + tax
+    costo_total = costo_comida + propina + impuestos
     
     # Print the total cost rounded to the nearest integer
     print(round(costo_total))
 
 if __name__ == '__main__':
-    costo_comida = float(input().strip())
+    costo_comida = float(input("Digite el precio de la comida").strip())
 
-    propina = int(input().strip())
+    propina = int(input("Digite el monto de la propina").strip())
 
-    impuestos = int(input().strip())
+    impuestos = int(input("Digite el monto del impuesto").strip())
 
     solve(costo_comida, propina, impuestos)
