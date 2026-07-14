@@ -14,27 +14,24 @@ import sys
 #  2. INTEGER propina
 #  3. INTEGER impuestos
 #
-print ("Bienvenido al sistema de facturacion")
-
-print ("Ingrese el producto deseado")
-
-
-def solve(costo_comida, propina, impuestos):
-  # Calculate tip and tax values
-    propina = costo_comida * (propina/100)
-    impuestos = costo_comida * (impuestos/100)
+    print("--- Sistema de Facturación: D' Pedro pasteles en hoja ---")
     
-    # Sum everything to get the total cost
-    costo_total = costo_comida + propina + impuestos
+    # 1. Pedimos el precio del plato principal
+    costo_comida = float(input("Digite el precio del plato principal: ").strip())
     
-    # Print the total cost rounded to the nearest integer
-    print(round(costo_total))
-
-if __name__ == '__main__':
-    costo_comida = float(input("Digite el precio de la comida").strip())
-
-    propina = int(input("Digite el monto de la propina").strip())
-
-    impuestos = int(input("Digite el monto del impuesto").strip())
-
+    # 2. Definimos nuestra lista de 5 extras en el menú
+    print("\n--- Agregue 5 extras a su pedido ---")
+    menu_extras = ["Queso extra", "Kétchup", "Mayonesa", "Picante", "Bebida"]
+    
+    # 3. Recorremos la lista preguntando el precio de cada extra y sumándolo al total
+    for extra in menu_extras:
+        precio_extra = float(input(f"Digite el precio para el extra ({extra}): ").strip())
+        costo_comida += precio_extra
+        
+    print("\n--- Totales y Propinas ---")
+    # 4. Pedimos la propina y los impuestos (como porcentajes)
+    propina = int(input("Digite el % de la propina: ").strip())
+    impuestos = int(input("Digite el % del impuesto: ").strip())
+    
+    # 5. Llamamos a tu función original con el costo base + todos los extras sumados
     solve(costo_comida, propina, impuestos)
